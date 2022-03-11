@@ -1,0 +1,7 @@
+{
+  "name": "VentRoarApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
