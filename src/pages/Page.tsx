@@ -26,10 +26,7 @@ const Page: React.FC = () => {
             <ToDark />
           </IonButtons>
           <IonButtons slot="end" className="mr-2">
-            <NavImg
-              imgURL="https://api.lorem.space/image/face?hash=28212"
-              size="8"
-            />
+            <NavImg imgURL="https://api.lorem.space/image/face?hash=28212" />
           </IonButtons>
         </IonToolbar>
       </IonHeader>
