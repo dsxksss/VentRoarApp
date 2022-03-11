@@ -8,8 +8,9 @@ import {
   IonToolbar,
 } from "@ionic/react";
 import { useParams } from "react-router";
-import ExploreContainer from "../components/ExploreContainer";
 import "./Page.css";
+import NavImg from "./../components/NavImg";
+import ToDark from "./../components/ToDark";
 
 const Page: React.FC = () => {
   const { name } = useParams<{ name: string }>();
@@ -21,17 +22,20 @@ const Page: React.FC = () => {
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>{name}</IonTitle>
+          <IonButtons slot="end">
+            <ToDark />
+          </IonButtons>
+          <IonButtons slot="end" className="mr-2">
+            <NavImg
+              imgURL="https://api.lorem.space/image/face?hash=28212"
+              size="8"
+            />
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
 
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">{name}</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer name={name} />
+      <IonContent>
+        <div className="flex justify-center items-center h-[91vh]">{name}</div>
       </IonContent>
     </IonPage>
   );
