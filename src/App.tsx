@@ -7,11 +7,12 @@ import {
 import { IonReactRouter } from "@ionic/react-router";
 import { Redirect, Route } from "react-router-dom";
 import Menu from "./components/Menu";
+import { ToastContainer, Slide } from "react-toastify";
 import Page from "./pages/Page";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
-
+import "react-toastify/dist/ReactToastify.css";
 /* Basic CSS for apps built with Ionic */
 import "@ionic/react/css/normalize.css";
 import "@ionic/react/css/structure.css";
@@ -46,6 +47,20 @@ const App: React.FC = () => {
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>
+      <ToastContainer
+        theme={"light"}
+        transition={Slide}
+        toastClassName={"select-none top-14 text-black"}
+        // className={"left-[20vw]  w-[80vw]"}
+        rtl={false} //调换消息栏位置
+        closeOnClick={false} //按动关闭
+        autoClose={2000} //自动关闭,false为取消自动关闭
+        limit={2} //最大同时显示个数
+        draggable //是否启动滑动关闭
+        draggablePercent={30} //滑动多少可以关闭
+        hideProgressBar //隐藏进度条
+        closeButton={false} //消息框关闭按钮是否显示
+      />
     </IonApp>
   );
 };
