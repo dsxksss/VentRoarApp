@@ -35,13 +35,13 @@ const Page: React.FC = () => {
         <div className="flex justify-center items-center h-[91vh]">
           <div className="mockup-code mt-[-9vh] min-w-[91vw] flex flex-col">
             <pre data-prefix="$">
-              <code>开始安装 {name}</code>
+              <code>开始安装 {name} 页面。</code>
             </pre>
             <pre data-prefix=">" className="text-warning">
               <code>{name} 正在安装中...</code>
             </pre>
             <pre data-prefix=">" className="text-success">
-              <code>{name}安装成功!</code>
+              <code>{name} 安装成功!</code>
             </pre>
           </div>
         </div>
