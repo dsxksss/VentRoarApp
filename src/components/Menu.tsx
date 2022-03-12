@@ -55,13 +55,11 @@ const Menu: React.FC = () => {
     console.log(data);
     //随机产生一个 “个位整数”
     const sum = Math.round(Math.random() * 10);
-    console.log(sum);
     //利用此数随机产生一个user
     setList(data[sum]);
   };
   useEffect(() => {
     getData();
-    console.table(userList);
     return setList([]);
   }, []);
   return (
