@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 
 //设置请求头部内容
 
-axios.interceptors.response.use(undefined, (error) => {
+axios.interceptors.response.use(undefined, (error: any) => {
   const expectedError =
     error.response &&
     error.response.status >= 400 &&
