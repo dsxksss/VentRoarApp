@@ -52,7 +52,6 @@ const Menu: React.FC = () => {
     const { data } = await AXIOS.get(
       "https://jsonplaceholder.typicode.com/users"
     );
-    console.log(data);
     //随机产生一个 “个位整数”
     const sum = Math.round(Math.random() * 10);
     //利用此数随机产生一个user
