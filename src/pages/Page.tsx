@@ -37,7 +37,7 @@ const Page: React.FC = () => {
               <code>开始安装 {name} 页面。</code>
             </pre>
             <pre data-prefix=">" className="text-warning">
-              <code>{name} 正在安装中...</code>
+              <code>{name} 正在安装中......</code>
             </pre>
             <pre data-prefix=">" className="text-success">
               <code>{name} 安装成功!</code>
