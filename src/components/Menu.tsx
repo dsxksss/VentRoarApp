@@ -9,7 +9,8 @@ import {
   IonMenuToggle,
   IonNote,
 } from "@ionic/react";
-
+import { useEffect, useState } from "react";
+import AXIOS from "./../services/httpServices";
 import { useLocation } from "react-router-dom";
 import {
   bookmarkOutline,
@@ -46,13 +47,29 @@ const labels = ["Family", "Notes", "Reminders"];
 
 const Menu: React.FC = () => {
   const location = useLocation();
-
+  const [userList, setList] = useState<never[] | any>([]);
+  const getData = async () => {
+    const { data } = await AXIOS.get(
+      "https://jsonplaceholder.typicode.com/users"
+    );
+    console.log(data);
+    //随机产生一个 “个位整数”
+    const sum = Math.round(Math.random() * 10);
+    console.log(sum);
+    //利用此数随机产生一个user
+    setList(data[sum]);
+  };
+  useEffect(() => {
+    getData();
+    console.table(userList);
+    return setList([]);
+  }, []);
   return (
     <IonMenu contentId="main" type="overlay">
       <IonContent>
         <IonList id="inbox-list">
-          <IonListHeader>图灵猫</IonListHeader>
-          <IonNote>2546650292@qq.com</IonNote>
+          <IonListHeader>{userList.name}</IonListHeader>
+          <IonNote>{userList.email}</IonNote>
           {appPages.map((appPage, index) => {
             return (
               <IonMenuToggle key={index} autoHide={false}>
