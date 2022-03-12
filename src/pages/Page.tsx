@@ -43,7 +43,8 @@ const Page: React.FC = () => {
           <Draggable
             axis="both" //拖动的方向
             grid={[1, 1]} //每次拖动应该移动多少,C1:X,C2:Y
-            scale={3} //摩擦度数,越高越难拖动
+            scale={1.6} //摩擦度数,越高越难拖动
+            // bounds={{ top: 1, bottom: 1 }} //限制拖动地方
             onStart={handleStart} //开始拖动发生的事情
             onDrag={handleDrag} //拖动时发生的事情
             onStop={handleStop} //结束拖动发生的事情
