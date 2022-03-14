@@ -62,7 +62,8 @@ const Menu: React.FC = () => {
     return setList([]);
   }, []);
   return (
-    <IonMenu contentId="main" type="overlay">
+    //max-edge-start菜单滑动边缘大小
+    <IonMenu color="success" contentId="main" type="push" max-edge-start={130}>
       <IonContent>
         <IonList id="inbox-list">
           <IonListHeader>{userList.name}</IonListHeader>

@@ -1,9 +1,11 @@
 import {
+  IonButton,
   IonButtons,
   IonContent,
   IonHeader,
   IonMenuButton,
   IonPage,
+  IonPopover,
   IonToolbar,
 } from "@ionic/react";
 import { useParams } from "react-router";
@@ -12,13 +14,20 @@ import NavImg from "./../components/NavImg";
 import ToDark from "./../components/ToDark";
 
 import "./Page.css";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const Page: React.FC = () => {
   const { name } = useParams<{ name: string }>();
+  const [popoverState, setShowPopover] = useState({
+    showPopover: false,
+    event: undefined,
+  });
   //因为Draggable会操纵原始DOM,但是React不建议这样做,所以可以给它传递一个ref,以避免警告
   const nodeRef = useRef(null);
-  const handleStart = () => console.log("handleStart");
+  const handleStart = (e: any) => {
+    console.log("handleStart");
+    console.log(e);
+  };
   const handleDrag = () => console.log("handleDrag");
   const handleStop = () => console.log("handleStop");
 
@@ -33,7 +42,27 @@ const Page: React.FC = () => {
             <ToDark />
           </IonButtons>
           <IonButtons slot="end" className="mr-2">
-            <NavImg imgURL="https://api.lorem.space/image/face?hash=28212" />
+            <IonPopover
+              event={popoverState.event}
+              isOpen={popoverState.showPopover}
+              onDidDismiss={() =>
+                setShowPopover({ showPopover: false, event: undefined })
+              }
+            >
+              <div className="flex flex-col text-[1rem] font-bold">
+                <button>登录账号</button>
+                <button>个人主页</button>
+                <button>退出账号</button>
+              </div>
+            </IonPopover>
+            <IonButton
+              onClick={(e: any) => {
+                e.persist();
+                setShowPopover({ showPopover: true, event: e });
+              }}
+            >
+              <NavImg imgURL="https://api.lorem.space/image/face?hash=28212" />
+            </IonButton>
           </IonButtons>
         </IonToolbar>
       </IonHeader>
