@@ -8,13 +8,13 @@ import {
   IonPopover,
   IonToolbar,
 } from "@ionic/react";
+import { useRef, useState } from "react";
 import { useParams } from "react-router";
 import Draggable from "react-draggable";
 import NavImg from "./../components/NavImg";
 import ToDark from "./../components/ToDark";
-
 import "./Page.css";
-import { useRef, useState } from "react";
+import t1 from "../img/t1.jpg";
 
 const Page: React.FC = () => {
   const { name } = useParams<{ name: string }>();
@@ -68,7 +68,7 @@ const Page: React.FC = () => {
       </IonHeader>
 
       <IonContent>
-        <div className="flex justify-center items-center h-[91vh]">
+        <div className="flex justify-center">
           <Draggable
             axis="both" //拖动的方向
             grid={[1, 1]} //每次拖动应该移动多少,C1:X,C2:Y
@@ -81,17 +81,28 @@ const Page: React.FC = () => {
           >
             <div
               ref={nodeRef} //传递ref避免报错警告
-              className="mockup-code mt-[-9vh] min-w-[91vw] flex flex-col"
             >
-              <pre data-prefix="$">
-                <code>开始安装 {name} 页面。</code>
-              </pre>
-              <pre data-prefix=">" className="text-warning">
-                <code>{name} 正在安装中......</code>
-              </pre>
-              <pre data-prefix=">" className="text-success">
-                <code>{name} 安装成功!</code>
-              </pre>
+              <div className="card w-[91vw] bg-base-100 shadow-xl">
+                <figure>
+                  <img src={t1} alt="Shoes" />
+                </figure>
+                <div className="card-body bg-white">
+                  <h2 className="card-title">
+                    Shoes!
+                    <div className="badge badge-secondary">NEW</div>
+                  </h2>
+                  <pre data-prefix="$">
+                    <code>npm install {name} 页面。</code>
+                  </pre>
+                  <pre data-prefix="$">
+                    <code>{name} instaling done!</code>
+                  </pre>
+                  <div className="card-actions justify-end ml-5 mt-5">
+                    <div className="badge badge-info">Fashion</div>
+                    <div className="badge badge-primary">Products</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </Draggable>
         </div>
