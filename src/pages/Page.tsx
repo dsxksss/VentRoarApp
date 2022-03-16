@@ -42,33 +42,13 @@ const Page: React.FC = () => {
             <ToDark />
           </IonButtons>
           <IonButtons slot="end" className="mr-2">
-            <IonPopover
-              event={popoverState.event}
-              isOpen={popoverState.showPopover}
-              onDidDismiss={() =>
-                setShowPopover({ showPopover: false, event: undefined })
-              }
-            >
-              <div className="flex flex-col text-[1rem] font-bold">
-                <button>登录账号</button>
-                <button>个人主页</button>
-                <button>退出账号</button>
-              </div>
-            </IonPopover>
-            <IonButton
-              onClick={(e: any) => {
-                e.persist();
-                setShowPopover({ showPopover: true, event: e });
-              }}
-            >
-              <NavImg imgURL="https://api.lorem.space/image/face?hash=28212" />
-            </IonButton>
+            <NavImg imgURL="https://api.lorem.space/image/face?hash=28212" />
           </IonButtons>
         </IonToolbar>
       </IonHeader>
 
       <IonContent>
-        <div className="flex justify-center">
+        <div className="flex justify-center mt-5">
           <Draggable
             axis="both" //拖动的方向
             grid={[1, 1]} //每次拖动应该移动多少,C1:X,C2:Y
@@ -86,7 +66,7 @@ const Page: React.FC = () => {
                 <figure>
                   <img src={t1} alt="Shoes" />
                 </figure>
-                <div className="card-body bg-white">
+                <div className="card-body bg-slate-200">
                   <h2 className="card-title">
                     Shoes!
                     <div className="badge badge-secondary">NEW</div>
