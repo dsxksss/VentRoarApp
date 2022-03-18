@@ -24,6 +24,7 @@
     "axios": "^0.26.1",
     "daisyui": "^2.6.4",
     "ionicons": "^5.4.0",
+    "prettier-plugin-tailwindcss": "^0.1.8",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-draggable": "^4.4.4",
