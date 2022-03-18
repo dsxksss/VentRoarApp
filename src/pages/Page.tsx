@@ -8,11 +8,17 @@ import {
   IonIcon,
   IonMenuButton,
   IonPage,
+  IonSlide,
+  IonSlides,
   IonTabBar,
   IonTabButton,
   IonText,
   IonToolbar,
 } from "@ionic/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/virtual";
 
 import { useParams } from "react-router";
 import { home, mailOutline, person, star } from "ionicons/icons";
@@ -32,7 +38,11 @@ const Page: React.FC = () => {
   // };
   // const handleDrag = () => console.log("handleDrag");
   // const handleStop = () => console.log("handleStop");
-
+  // Create array with 1000 slides
+  const slideOpts = {
+    initialSlide: 1,
+    speed: 400,
+  };
   return (
     <IonPage>
       <IonHeader>
@@ -76,8 +86,18 @@ const Page: React.FC = () => {
 
           {/* </div>
           </Draggable> */}
-          <CardBadge imgUrl={t1} title={name} detail={name} />
         </div>
+        <IonSlides pager={true} options={slideOpts}>
+          <IonSlide>
+            <CardBadge imgUrl={t1} title={`${name}1`} detail={`${name}1`} />
+          </IonSlide>
+          <IonSlide>
+            <CardBadge imgUrl={t1} title={`${name}2`} detail={`${name}2`} />
+          </IonSlide>
+          <IonSlide>
+            <CardBadge imgUrl={t1} title={`${name}3`} detail={`${name}3`} />
+          </IonSlide>
+        </IonSlides>
       </IonContent>
 
       <IonTabBar slot="bottom">
