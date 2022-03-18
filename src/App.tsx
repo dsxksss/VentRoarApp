@@ -47,6 +47,7 @@ const App: React.FC = () => {
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>
+
       <ToastContainer
         theme={"light"}
         transition={Slide}

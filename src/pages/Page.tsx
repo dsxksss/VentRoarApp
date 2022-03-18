@@ -1,22 +1,26 @@
+// import { useRef } from "react";
+// import Draggable from "react-draggable";
 import {
+  IonBadge,
   IonButtons,
   IonContent,
   IonHeader,
   IonIcon,
   IonMenuButton,
   IonPage,
+  IonTabBar,
+  IonTabButton,
   IonText,
   IonToolbar,
 } from "@ionic/react";
-// import { useRef } from "react";
+
 import { useParams } from "react-router";
-import { mailUnreadOutline } from "ionicons/icons";
-// import Draggable from "react-draggable";
+import { home, mailOutline, person, star } from "ionicons/icons";
+import CardBadge from "../components/CardBadge";
 import NavImg from "./../components/NavImg";
 import ToDark from "./../components/ToDark";
-import "./Page.css";
 import t1 from "../img/t1.jpg";
-import CardBadge from "../components/CardBadge";
+import "./Page.css";
 
 const Page: React.FC = () => {
   const { name } = useParams<{ name: string }>();
@@ -38,22 +42,24 @@ const Page: React.FC = () => {
               <NavImg imgUrl="https://api.lorem.space/image/face?hash=28212" />
             </IonMenuButton>
           </IonButtons>
-          <IonText className="font-bold font-sans text-[1.2rem]">
+          <IonText className="font-sans text-[1.2rem] font-bold">
             VentRoar
           </IonText>
           <IonButtons slot="end">
             <ToDark />
           </IonButtons>
-          <IonIcon
-            className="h-[1.7rem] w-[1.7rem] mr-3"
-            slot="end"
-            icon={mailUnreadOutline}
-          />
+          <IonButtons slot="end">
+            <IonIcon
+              className="mr-3 h-[1.7rem] w-[1.7rem]"
+              icon={mailOutline}
+            />
+            <IonBadge color="success"></IonBadge>
+          </IonButtons>
         </IonToolbar>
       </IonHeader>
 
       <IonContent>
-        <div className="flex flex-col space-y-6 items-center justify-center mt-5">
+        <div className="mt-5 flex flex-col items-center justify-center space-y-6">
           {/* <Draggable
             axis="both" //拖动的方向
             grid={[1, 1]} //每次拖动应该移动多少,C1:X,C2:Y
@@ -68,11 +74,29 @@ const Page: React.FC = () => {
               ref={nodeRef} //传递ref避免报错警告
             > */}
 
-          <CardBadge imgUrl={t1} title={name} detail={name} />
           {/* </div>
           </Draggable> */}
+          <CardBadge imgUrl={t1} title={name} detail={name} />
         </div>
       </IonContent>
+
+      <IonTabBar slot="bottom">
+        <IonTabButton tab="homePage">
+          <IonIcon icon={home} />
+        </IonTabButton>
+
+        <IonTabButton tab="heartPage">
+          <IonIcon icon={star} />
+        </IonTabButton>
+
+        <IonTabButton tab="userPage">
+          <IonIcon icon={person} />
+          <IonBadge
+            color="success"
+            className="flex h-3 w-3 items-center justify-center rounded-full p-1"
+          ></IonBadge>
+        </IonTabButton>
+      </IonTabBar>
     </IonPage>
   );
 };
