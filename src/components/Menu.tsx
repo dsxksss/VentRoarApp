@@ -20,6 +20,7 @@ import {
   paperPlaneSharp,
 } from "ionicons/icons";
 import "./Menu.css";
+import { Swiper } from "swiper/react";
 
 interface AppPage {
   url: string;
@@ -63,7 +64,7 @@ const Menu: React.FC = () => {
   }, []);
   return (
     //max-edge-start菜单滑动边缘大小
-    <IonMenu color="success" contentId="main" type="push" max-edge-start={130}>
+    <IonMenu color="success" contentId="main" type="push" swipe-gesture={false}>
       <IonContent>
         <IonList id="inbox-list">
           <IonListHeader>{userList.name}</IonListHeader>
