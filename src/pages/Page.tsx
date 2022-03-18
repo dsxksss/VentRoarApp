@@ -40,8 +40,8 @@ const Page: React.FC = () => {
   // const handleStop = () => console.log("handleStop");
   // Create array with 1000 slides
   const slideOpts = {
-    initialSlide: 1,
-    speed: 400,
+    initialSlide: 0,
+    speed: 500,
   };
   return (
     <IonPage>

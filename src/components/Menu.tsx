@@ -64,7 +64,13 @@ const Menu: React.FC = () => {
   }, []);
   return (
     //max-edge-start菜单滑动边缘大小
-    <IonMenu color="success" contentId="main" type="push" swipe-gesture={false}>
+    <IonMenu
+      color="success"
+      contentId="main"
+      type="push"
+      swipe-gesture={true}
+      max-edge-start={0}
+    >
       <IonContent>
         <IonList id="inbox-list">
           <IonListHeader>{userList.name}</IonListHeader>
