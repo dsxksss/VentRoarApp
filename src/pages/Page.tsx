@@ -45,7 +45,7 @@ const Page: React.FC = () => {
             <ToDark />
           </IonButtons>
           <IonIcon
-            className="h-7 w-7 mr-3"
+            className="h-[1.7rem] w-[1.7rem] mr-3"
             slot="end"
             icon={mailUnreadOutline}
           />
