@@ -20,7 +20,6 @@ import {
   paperPlaneSharp,
 } from "ionicons/icons";
 import "./Menu.css";
-import { Swiper } from "swiper/react";
 
 interface AppPage {
   url: string;
