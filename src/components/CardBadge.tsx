@@ -3,7 +3,7 @@ import ICardBadge from "../interface/ICardBadge";
 
 const CardBadge: React.FC<ICardBadge> = ({ imgUrl, title, detail }) => {
   return (
-    <div className="card w-[91vw] bg-base-100 shadow-xl">
+    <div className="card mb-2 w-[91vw] bg-base-100 shadow-md">
       <figure>
         <img src={imgUrl} alt="Shoes" className="bg-cover" />
       </figure>

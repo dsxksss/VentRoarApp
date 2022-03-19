@@ -92,10 +92,31 @@ const Page: React.FC = () => {
             <CardBadge imgUrl={t1} title={`${name}1`} detail={`${name}1`} />
           </IonSlide>
           <IonSlide>
-            <CardBadge imgUrl={t1} title={`${name}2`} detail={`${name}2`} />
+            <CardBadge
+              imgUrl={
+                "https://images.unsplash.com/photo-1640622659787-d15655c3a2ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+              }
+              title={`${name}2`}
+              detail={`${name}2`}
+            />
           </IonSlide>
           <IonSlide>
-            <CardBadge imgUrl={t1} title={`${name}3`} detail={`${name}3`} />
+            <CardBadge
+              imgUrl={
+                "https://images.unsplash.com/photo-1647595439361-e12605a18bc0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+              }
+              title={`${name}3`}
+              detail={`${name}3`}
+            />
+          </IonSlide>
+          <IonSlide>
+            <CardBadge
+              imgUrl={
+                "https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+              }
+              title={`${name}4`}
+              detail={`${name}4`}
+            />
           </IonSlide>
         </IonSlides>
       </IonContent>
