@@ -1,14 +1,24 @@
 import {
   IonApp,
+  IonBadge,
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonIcon,
+  IonMenuButton,
   IonRouterOutlet,
   IonSplitPane,
+  IonTabBar,
+  IonTabButton,
+  IonText,
+  IonToolbar,
   setupIonicReact,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import { Redirect, Route } from "react-router-dom";
 import Menu from "./components/Menu";
 import { ToastContainer, Slide } from "react-toastify";
-import Page from "./pages/Page";
+import HomePage from "./pages/HomePage";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -28,25 +38,63 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
+import StarPage from "./pages/StarPage";
+import UserPage from "./pages/UserPage";
+import { home, mailOutline, person, star } from "ionicons/icons";
+import NavImg from "./components/NavImg";
+import ToDark from "./components/ToDark";
 
 setupIonicReact();
 
 const App: React.FC = () => {
   return (
     <IonApp>
-      <IonReactRouter>
-        <IonSplitPane contentId="main">
-          <Menu />
-          <IonRouterOutlet id="main">
-            <Route path="/" exact={true}>
-              <Redirect to="/page/Inbox" />
-            </Route>
-            <Route path="/page/:name" exact={true}>
-              <Page />
-            </Route>
-          </IonRouterOutlet>
-        </IonSplitPane>
-      </IonReactRouter>
+      <IonHeader>
+        <IonToolbar className="flex">
+          <IonButtons slot="start">
+            <IonMenuButton>
+              <NavImg imgUrl="https://api.lorem.space/image/face?hash=28212" />
+            </IonMenuButton>
+          </IonButtons>
+          <IonText className="font-sans text-[1.2rem] font-bold">
+            VentRoar
+          </IonText>
+          <IonButtons slot="end">
+            <ToDark />
+          </IonButtons>
+          <IonButtons slot="end">
+            <IonIcon
+              className="mr-3 h-[1.7rem] w-[1.7rem]"
+              icon={mailOutline}
+            />
+            <IonBadge color="success"></IonBadge>
+          </IonButtons>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent>
+        <IonReactRouter>
+          <IonSplitPane contentId="main">
+            <Menu />
+            <IonRouterOutlet id="main">
+              <Route exact path="/">
+                <Redirect to="/HomePage" />
+              </Route>
+              <Route exact path="/HomePage">
+                <HomePage />
+              </Route>
+              <Route exact path={"/HomePage"}>
+                <HomePage />
+              </Route>
+              <Route exact path={"/StarPage"}>
+                <StarPage />
+              </Route>
+              <Route exact path={"/UserPage"}>
+                <UserPage />
+              </Route>
+            </IonRouterOutlet>
+          </IonSplitPane>
+        </IonReactRouter>
+      </IonContent>
 
       <ToastContainer
         theme={"light"}
@@ -62,6 +110,22 @@ const App: React.FC = () => {
         hideProgressBar //隐藏进度条
         closeButton={false} //消息框关闭按钮是否显示
       />
+
+      <IonTabBar slot="bottom" color="light">
+        <IonTabButton tab="HomePage" href="/HomePage">
+          <IonIcon icon={home} />
+        </IonTabButton>
+        <IonTabButton tab="StarPage" href="/StarPage">
+          <IonIcon icon={star} />
+        </IonTabButton>
+        <IonTabButton tab="UserPage" href="/UserPage">
+          <IonIcon icon={person} />
+          <IonBadge
+            color="success"
+            className="flex h-3 w-3 items-center justify-center rounded-full p-1"
+          ></IonBadge>
+        </IonTabButton>
+      </IonTabBar>
     </IonApp>
   );
 };
