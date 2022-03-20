@@ -77,9 +77,9 @@ const App: React.FC = () => {
             <Menu />
             <IonRouterOutlet id="main">
               <Route exact path="/">
-                <Redirect to="/HomePage" />
+                <Redirect to="/HomePage/Inbox" />
               </Route>
-              <Route exact path="/HomePage">
+              <Route exact path="/HomePage/:name">
                 <HomePage />
               </Route>
               <Route exact path={"/HomePage"}>
