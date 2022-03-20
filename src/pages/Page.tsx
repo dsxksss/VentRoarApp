@@ -1,4 +1,4 @@
-// import { useRef } from "react";
+import { useRef } from "react";
 // import Draggable from "react-draggable";
 import {
   IonBadge,
@@ -31,7 +31,7 @@ import "./Page.css";
 const Page: React.FC = () => {
   const { name } = useParams<{ name: string }>();
   //因为Draggable会操纵原始DOM,但是React不建议这样做,所以可以给它传递一个ref,以避免警告
-  // const nodeRef = useRef(null);
+  const nodeRef = useRef(null);
   // const handleStart = (e: any) => {
   //   console.log("handleStart");
   //   console.log(e);
@@ -87,7 +87,7 @@ const Page: React.FC = () => {
           {/* </div>
           </Draggable> */}
         </div>
-        <IonSlides pager={true} options={slideOpts}>
+        <IonSlides pager={true} options={slideOpts} ref={nodeRef}>
           <IonSlide>
             <CardBadge imgUrl={t1} title={`${name}1`} detail={`${name}1`} />
           </IonSlide>
