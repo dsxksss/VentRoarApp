@@ -10,6 +10,7 @@ import {
   IonSplitPane,
   IonTabBar,
   IonTabButton,
+  IonTabs,
   IonText,
   IonToolbar,
   setupIonicReact,
@@ -71,10 +72,10 @@ const App: React.FC = () => {
           </IonButtons>
         </IonToolbar>
       </IonHeader>
+
       <IonContent>
         <IonReactRouter>
-          <IonSplitPane contentId="main">
-            <Menu />
+          <IonTabs className="z-10">
             <IonRouterOutlet id="main">
               <Route exact path="/">
                 <Redirect to="/HomePage/Inbox" />
@@ -92,6 +93,24 @@ const App: React.FC = () => {
                 <UserPage />
               </Route>
             </IonRouterOutlet>
+            <IonTabBar slot="bottom" color="light">
+              <IonTabButton tab="HomePage" href="/HomePage">
+                <IonIcon icon={home} />
+              </IonTabButton>
+              <IonTabButton tab="StarPage" href="/StarPage">
+                <IonIcon icon={star} />
+              </IonTabButton>
+              <IonTabButton tab="UserPage" href="/UserPage">
+                <IonIcon icon={person} />
+                <IonBadge
+                  color="success"
+                  className="flex h-3 w-3 items-center justify-center rounded-full p-1"
+                ></IonBadge>
+              </IonTabButton>
+            </IonTabBar>
+          </IonTabs>
+          <IonSplitPane contentId="main">
+            <Menu />
           </IonSplitPane>
         </IonReactRouter>
       </IonContent>
@@ -110,22 +129,6 @@ const App: React.FC = () => {
         hideProgressBar //隐藏进度条
         closeButton={false} //消息框关闭按钮是否显示
       />
-
-      <IonTabBar slot="bottom" color="light">
-        <IonTabButton tab="HomePage" href="/HomePage">
-          <IonIcon icon={home} />
-        </IonTabButton>
-        <IonTabButton tab="StarPage" href="/StarPage">
-          <IonIcon icon={star} />
-        </IonTabButton>
-        <IonTabButton tab="UserPage" href="/UserPage">
-          <IonIcon icon={person} />
-          <IonBadge
-            color="success"
-            className="flex h-3 w-3 items-center justify-center rounded-full p-1"
-          ></IonBadge>
-        </IonTabButton>
-      </IonTabBar>
     </IonApp>
   );
 };
